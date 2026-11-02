@@ -4,10 +4,9 @@ from __future__ import annotations
 import math
 import random
 
-from svgkit import (BODY, CONDENSED, CYAN, DEEP, DISPLAY, INK, MAGENTA, MONO, MUTED, NIGHT,
-                    PAPER, RED, VIOLET, YELLOW, burst, chip, dots_pattern, halftone_field,
-                    hatch_pattern, measure, misprint, num, paragraph, save, skyline, splatter,
-                    svg_doc, text, text_d, web, zigzag)
+from svgkit import (CONDENSED, CYAN, DISPLAY, INK, MAGENTA, MONO, NIGHT, PAPER, RED, VIOLET,
+                    YELLOW, dots_pattern, halftone_field, hatch_pattern, measure, num, save,
+                    skyline, splatter, svg_doc, text, text_d, web, zigzag)
 
 W = 1200
 
@@ -92,7 +91,6 @@ def hero() -> None:
     # spray-paint hits
     b.append(splatter(905, 455, 120, RED, 21, n=90, drips=6, rmax=11))
     b.append(splatter(1130, 120, 70, MAGENTA, 8, n=45, drips=3, rmax=7))
-    b.append(splatter(70, 505, 60, CYAN, 4, n=30, drips=0, rmax=5))
 
     # issue box, top-left — the comic-cover corner
     b.append(f'<g transform="translate(46 30)"><rect width="86" height="102" fill="{RED}" stroke="{INK}" stroke-width="4"/>'
@@ -103,7 +101,7 @@ def hero() -> None:
 
     # eyebrow
     b.append(f'<rect x="60" y="174" width="12" height="12" fill="{RED}"/>')
-    b.append(text("EARTH-MKJ  //  CHENNAI, IN  //  AI · ML · FULL STACK", MONO, 15, 84, 186, CYAN, ls=.6))
+    b.append(text("AI/ML & SOFTWARE ENGINEER  //  B.TECH CSE, SRM IST  //  CHENNAI", MONO, 15, 84, 186, CYAN, ls=.6))
 
     # the name, mis-registered, halftone-shaded, with glitch slices
     name_d = text_d("MANOJ", DISPLAY, 158, 54, 330, ls=-2)
@@ -125,8 +123,6 @@ def hero() -> None:
     # spider-sense: something's coming
     sense = "".join(zigzag(742, 210, L, a, 4.5, 7) for L, a in [(52, -55), (60, -25), (48, 5)])
     b.append(f'<path class="sense" d="{sense}" fill="none" stroke="{PAPER}" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/>')
-    sense2 = "".join(zigzag(38, 240, L, a, 4, 7) for L, a in [(36, 200), (40, 230)])
-    b.append(f'<path class="sense s2" d="{sense2}" fill="none" stroke="{RED}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>')
 
     # narration caption, slightly off-axis
     cap = "AI agents. ML models. Full-stack apps."
